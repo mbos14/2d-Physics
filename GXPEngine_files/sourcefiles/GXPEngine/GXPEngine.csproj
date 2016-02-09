@@ -32,6 +32,7 @@
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
+    <Reference Include="System" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.XML" />
   </ItemGroup>
@@ -43,7 +44,8 @@
     <Compile Include="Help classes\NLineSegment.cs" />
     <Compile Include="Help classes\TextField.cs" />
     <Compile Include="Help classes\Vec2.cs" />
-    <Compile Include="Level\Item.cs" />
+    <Compile Include="Level\Enemy.cs" />
+    <Compile Include="Level\EnemyAnimation.cs" />
     <Compile Include="Level\Level.cs" />
     <Compile Include="Level\Map.cs" />
     <Compile Include="Level\Tile.cs" />

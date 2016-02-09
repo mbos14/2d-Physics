@@ -25,17 +25,17 @@ namespace GXPEngine
         public Layer[] Layers;
 
         [XmlElement("objectgroup")]
-		public ObjectGroup[] ObjectGroup;
+		public ObjectGroup[] objectGroups;
 
 		public Map () {}
         public override string ToString()
         {
-            string layerString = "";
-            foreach (Layer layer in Layers)
+            string objectGroupString = "";
+            foreach (ObjectGroup objectGroup in objectGroups)
             {
-                layerString += layer.ToString();
+                objectGroupString += objectGroup.ToString();
             }
-            return "width: " + Width + "\nheight: " + Height + "\ntileWidth: " + tileWidth + "\ntileHeight: " + tileHeight + layerString + ObjectGroup;
+            return "width: " + Width + "\nheight: " + Height + "\ntileWidth: " + tileWidth + "\ntileHeight: " + tileHeight +"\n" + objectGroupString;
         }
     }
     [XmlRootAttribute("layer")]
@@ -72,7 +72,16 @@ namespace GXPEngine
 		
 		[XmlElement("object")]
 		public TiledObject[] TiledObject;
-	}
+        public override string ToString()
+        {
+            string stringOutput = "";
+            foreach (TiledObject tiledObject in TiledObject)
+            {
+                stringOutput += tiledObject;
+            }
+            return stringOutput;
+        }
+    }
 	
 	/// <summary>
 	/// Represents the Object tag in an Object group
@@ -92,7 +101,7 @@ namespace GXPEngine
         public override string ToString()
         {
 
-            return "\nTiledObject GID: " + GID + "\nTiledObject X: " + X + "\nTiledObject Y: " + Y + "Properties: " +Properties;
+            return "\nTiledObject GID: " + GID + "\nTiledObject X: " + X + "\nTiledObject Y: " + Y + "\nProperties: " +Properties;
         }
     }
 	

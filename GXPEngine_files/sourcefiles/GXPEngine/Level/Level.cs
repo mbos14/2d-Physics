@@ -18,6 +18,10 @@ namespace GXPEngine
 		{
 		
 		}
-	}
+        public override string ToString()
+        {
+            return _map.ToString();
+        }
+    }
 }
 

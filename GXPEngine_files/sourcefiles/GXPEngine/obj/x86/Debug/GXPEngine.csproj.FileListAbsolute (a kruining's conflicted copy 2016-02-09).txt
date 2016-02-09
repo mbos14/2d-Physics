@@ -8,5 +8,3 @@ C:\Users\Tristan\Dropbox\2D arcade game\2d-Physics\GXPEngine_files\sourcefiles\G
 C:\Users\Tristan\Dropbox\2D arcade game\2d-Physics\GXPEngine_files\sourcefiles\GXPEngine\obj\x86\Debug\GXPEngine.exe
 C:\Users\Tristan\Dropbox\2D arcade game\2d-Physics\GXPEngine_files\sourcefiles\GXPEngine\obj\x86\Debug\GXPEngine.pdb
 C:\Users\Tristan\Dropbox\2D arcade game\2d-Physics\GXPEngine_files\sourcefiles\GXPEngine\obj\x86\Debug\GXPEngine.csprojResolveAssemblyReference.cache
-C:\Users\maikel\Dropbox\2D arcade game\2d-Physics\GXPEngine_files\sourcefiles\GXPEngine\obj\x86\Debug\GXPEngine.exe
-C:\Users\maikel\Dropbox\2D arcade game\2d-Physics\GXPEngine_files\sourcefiles\GXPEngine\obj\x86\Debug\GXPEngine.pdb

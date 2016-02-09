@@ -14,8 +14,7 @@ public class MyGame : Game
 
 	void Update ()
 	{
-		//empty
-	}
+		//can you read this? no	} ?
 
 	static void Main() {
 		new MyGame().Start();

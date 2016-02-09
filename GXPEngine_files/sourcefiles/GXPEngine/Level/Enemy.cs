@@ -4,30 +4,39 @@ using GXPEngine;
 
 namespace GXPEngine
 {
-	public class Item : Sprite
+	public class Enemy : Sprite
 	{
 		//all different Item types
 		const int ITEMCOUNT = 1;
-		public const int TYPE_SPAWN = 1;
+		public const int TYPE_NORMAL = 1;
 
 		//field that stores this items Item type
 		private int type;
 		//we use an AnimSprite as a graphic (currentFrame==type)
-		private Tile gfx;
+		private EnemyAnimation gfx;
 		//properties can be stored as a Dictionary
 		public Dictionary<string, string> properties = new Dictionary<string, string>();
 
         //object is made from it's hitbox (since it is 2.5D)
-        public Item(TiledObject tiledObject) : base("hitbox.png")
+        public Enemy(TiledObject tiledObject) : base ("hitbox.png")
         {
-            //test
-            Console.WriteLine(tiledObject.X+ " "+tiledObject.Y);
+            Console.WriteLine("-------Enemy created--------");
+            Console.WriteLine("X: "+tiledObject.X+ " Y: "+tiledObject.Y);
             //process TiledObject properties
             x = tiledObject.X;
             y = tiledObject.Y;
-            if(type!=TYPE_SPAWN) addGfx(tiledObject.GID);
+            if (tiledObject.Properties == null) Console.WriteLine("Error: properties missing!");
+            else
+            {
+                for (int i = 0; i < tiledObject.Properties.Property.Length; i++)
+                {
+                    if (tiledObject.Properties.Property[i].Name == "image")
+                    {
+                        addGfx(tiledObject.GID, tiledObject.Properties.Property[i].Value);
+                    }
+                }
+            }
 
-            //DONE: read properties from TiledObject and store them in the scenery object
             if (tiledObject.Properties != null)
             {
                 for (int i = 0; i < tiledObject.Properties.Property.Length; i++)
@@ -36,14 +45,15 @@ namespace GXPEngine
                 }
                 Console.WriteLine("Dictionary count: "+properties.Count + " "+ tiledObject.Properties.Property.Length);
             }
+            Console.WriteLine("\n");
         }
 
 		//adds a visual to this object
-		void addGfx(int itemID) {
-            gfx = new Tile(type-1);
+		void addGfx(int itemID,string imageFile) {
+            gfx = new EnemyAnimation(imageFile,1,1);
 			AddChild (gfx);
-			SetOrigin (0, height);
-			gfx.SetOrigin (0, gfx.height);
+			SetOrigin (width/2,0);
+			gfx.SetOrigin (width/2, 0);
 			SetItemType (itemID);
 			alpha = 0;
 		}
